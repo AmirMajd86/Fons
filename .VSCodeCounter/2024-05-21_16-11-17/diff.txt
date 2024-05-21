@@ -1,0 +1,41 @@
+Date : 2024-05-21 16:11:17
+Directory : d:\App\wamp64\www\Fons
+Total : 11 files,  -23661 codes, -3633 comments, -5038 blanks, all -32332 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| CSS        |          6 |    -10,145 |        -41 |     -1,191 |    -11,377 |
+| JavaScript |          5 |    -13,516 |     -3,592 |     -3,847 |    -20,955 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                           | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                              |         11 |    -23,661 |     -3,633 |     -5,038 |    -32,332 |
+| Content                                                        |         11 |    -23,661 |     -3,633 |     -5,038 |    -32,332 |
+| Content (Files)                                                |          1 |     -6,767 |     -1,887 |     -2,063 |    -10,717 |
+| Content\bs                                                     |         10 |    -16,894 |     -1,746 |     -2,975 |    -21,615 |
+| Content\bs\css                                                 |          6 |    -10,145 |        -41 |     -1,191 |    -11,377 |
+| Content\bs\js                                                  |          4 |     -6,749 |     -1,705 |     -1,784 |    -10,238 |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                       | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\App\wamp64\www\Fons\Content\bs\css\bootstrap-grid.css       | CSS        |     -1,940 |         -7 |       -103 |     -2,050 |
+| d:\App\wamp64\www\Fons\Content\bs\css\bootstrap-grid.min.css   | CSS        |         -1 |         -6 |          0 |         -7 |
+| d:\App\wamp64\www\Fons\Content\bs\css\bootstrap-reboot.css     | CSS        |       -266 |         -8 |        -56 |       -330 |
+| d:\App\wamp64\www\Fons\Content\bs\css\bootstrap-reboot.min.css | CSS        |         -1 |         -7 |          0 |         -8 |
+| d:\App\wamp64\www\Fons\Content\bs\css\bootstrap.css            | CSS        |     -7,936 |         -7 |     -1,032 |     -8,975 |
+| d:\App\wamp64\www\Fons\Content\bs\css\bootstrap.min.css        | CSS        |         -1 |         -6 |          0 |         -7 |
+| d:\App\wamp64\www\Fons\Content\bs\js\bootstrap.bundle.js       | JavaScript |     -3,950 |     -1,339 |     -1,040 |     -6,329 |
+| d:\App\wamp64\www\Fons\Content\bs\js\bootstrap.bundle.min.js   | JavaScript |         -1 |         -6 |          0 |         -7 |
+| d:\App\wamp64\www\Fons\Content\bs\js\bootstrap.js              | JavaScript |     -2,797 |       -354 |       -744 |     -3,895 |
+| d:\App\wamp64\www\Fons\Content\bs\js\bootstrap.min.js          | JavaScript |         -1 |         -6 |          0 |         -7 |
+| d:\App\wamp64\www\Fons\Content\jquery.js                       | JavaScript |     -6,767 |     -1,887 |     -2,063 |    -10,717 |
+| Total                                                          |            |    -23,661 |     -3,633 |     -5,038 |    -32,332 |
++----------------------------------------------------------------+------------+------------+------------+------------+------------+

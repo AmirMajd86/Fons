@@ -1,0 +1,356 @@
+body {
+  background-color: rgba(47, 45, 67, 1);
+  overflow-x: hidden;
+  background-size: cover;
+}
+#SignOut {
+  color: white;
+  background-color: rgb(0, 0, 0,0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 35px;
+  height: 35px;
+  background-size: 100% 100%;
+  border: none;
+  background-image: url(../../ico/logout.png);
+}
+#PanelLeft {
+  width: 5%;
+  height: 0%;
+  background-color: rgba(49, 49, 69, 0);
+  position: absolute;
+  left: 0;
+  bottom: 7%;
+  visibility: hidden;
+  border-radius: 10px;
+}
+
+#MessageWindow {
+  z-index: 1;
+  width: 0%;
+  height: 15%;
+  top: 0;
+  right: 0;
+  background-color: rgba(107, 108, 192, 0.7);
+  position: absolute;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  visibility: hidden;
+
+}
+
+@keyframes MessageWindow {
+  0% {
+    border-left: 10pc solid;
+  }
+
+  20% {}
+
+  40% {}
+
+  60% {}
+
+  80% {}
+
+  100% {
+    border-left: 0px solid;
+  }
+
+}
+
+#PanelShow {
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  height: 7%;
+  width: 5%;
+  background-color: rgba(47, 45, 67, 0);
+  background-image: url("../../ico/Apps.png");
+  background-size: 100% 100%;
+  border: none;
+  transition: 1.1s;
+}
+
+#PanelRight {
+  width: 0%;
+  height: 7%;
+  background-color: rgba(49, 49, 69, 0);
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  visibility: hidden;
+  border-radius: 10px;
+}
+
+#Home {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  background-image: url(../../ico/ac.png);
+  background-size: 100% 97%;
+  border: none;
+  background-color: rgba(47, 45, 67, 0);
+}
+
+#Home:hover,
+#Home:active,
+#Home:focus {
+  transform: scale(1.1);
+  transition: 1.1s;
+}
+
+#Chat {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  background-image: url(../../ico/chat.png);
+  background-size: 100% 97%;
+  border: none;
+  background-color: rgba(47, 45, 67, 0);
+}
+
+#Chat:hover,
+#Chat:active,
+#Chat:focus {
+  transform: scale(1.1);
+  transition: 1.1s;
+}
+
+#Search {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  background-image: url(../../ico/search.png);
+  background-size: 100% 95%;
+  border: none;
+  background-color: rgba(47, 45, 67, 0);
+}
+
+#Search:hover,
+#Search:active,
+#Search:focus {
+  transform: scale(1.1);
+  transition: 1.1s;
+}
+
+::-webkit-scrollbar {}
+
+#Setting {
+  position: relative;
+  width: 15%;
+  height: 100%;
+  background-image: url(../../ico/home.png);
+  background-size: 100% 97%;
+  border: none;
+  background-color: rgba(47, 45, 67, 0);
+}
+
+#Setting:hover,
+#Setting:active,
+#Setting:focus {
+  transform: scale(1.1);
+  transition: 1.1s;
+}
+
+#title {
+  color: whitesmoke;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  position: absolute;
+  top: 0;
+  left: 30%;
+  background-color: rgba(80, 80, 87, 0.1);
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 30px;
+  width: 40%;
+}
+
+#title:hover {
+  --animation-color: #0c47e9;
+  transition: 1s;
+  filter: drop-shadow(20px 20px 56px var(--animation-color));
+}
+
+#imgtitle {
+  position: absolute;
+  top: 0;
+  left: 95.3%;
+  background-color: rgba(80, 80, 87, 0);
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 5%;
+  background-image: url("../../ico/setting.png");
+  background-size: 100% 100%;
+}
+
+#imgtitle:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+#LoginForm {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  position: absolute;
+  backdrop-filter: blur(5px);
+}
+
+#LoginForm #User {
+  border: none;
+  width: 35%;
+  position: absolute;
+  background-color: rgba(47, 45, 67, 0.3);
+  color: rgb(179, 185, 223);
+  left: 35%;
+  height: 7%;
+  border: 2px solid white;
+  border-radius: 10px;
+  outline-color: rgb(0, 255, 255);
+  top: 45%;
+}
+
+#LoginForm #Pass {
+  outline-color: rgb(0, 255, 255);
+  border: none;
+  width: 35%;
+  position: absolute;
+  left: 35%;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: rgba(47, 45, 67, 0.3);
+  color: rgb(179, 185, 223);
+  height: 7%;
+  top: 55%;
+}
+
+#LoginForm #submit {
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 10%;
+  position: absolute;
+  left: 48%;
+  background-color: rgba(47, 45, 67, 0.3);
+  color: rgb(179, 185, 223);
+  height: 5%;
+  top: 63%;
+}
+
+#newsshow {
+  left: -10%;
+  rotate: 50deg;
+  height: 50%;
+  width: 30%;
+  position: absolute;
+  animation: news 10s infinite;
+}
+
+#News {
+  width: 0;
+  height: 0;
+  border-left: 250px solid transparent;
+  /* مربع چپ */
+  border-right: 250px solid transparent;
+  /* مربع راست */
+  border-bottom: 500px solid seagreen;
+  /* مربع پایین (تغییر رنگ به مثابه) */
+  visibility: hidden;
+  transform: scale(0);
+  color: white;
+}
+
+#imgnews {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#Userinfo {
+  width: 80%;
+  height: 80%;
+  border: 5px rgba(107, 108, 192, 0.3);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  left: 10%;
+  position: absolute;
+  top: 10%;
+}
+
+#Userinfo #UsernameShow {
+  width: 80%;
+  height: 10%;
+  background-color: rgba(47, 45, 67, 0);
+  border: none;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  left: 10%;
+  position: relative;
+  top: 10%;
+  color: white;
+  font-size: 100%;
+}
+
+#Userinfo #PasswordShow {
+  color: white;
+  width: 80%;
+  height: 10%;
+  background-color: rgba(47, 45, 67, 0);
+  border: none;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  left: 10%;
+  position: absolute;
+  top: 30%;
+}
+
+@keyframes news {
+  0% {
+    rotate: 0deg;
+    left: -50%;
+  }
+
+  70% {
+    left: -10%;
+    rotate: 60deg;
+  }
+
+  100% {
+    rotate: 0deg;
+    left: -50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #PanelLeft {
+    width: 10%;
+  }
+
+  #PanelShow {
+    background-size: 100% 100%;
+    width: 10%;
+  }
+
+  #PanelRight {
+    left: 10%;
+  }
+
+  #Setting {
+    width: 30%;
+  }
+
+  #imgtitle {
+    width: 10%;
+    left: 90%;
+  }
+
+  #LoginForm #submit {
+    width: 19%;
+    left: 43%;
+  }
+
+  #newsshow {
+    width: 47%;
+  }
+}

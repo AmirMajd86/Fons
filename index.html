@@ -1,0 +1,334 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fons</title>
+    <link rel="icon" type="image/png" href="ico/Fons.png" />
+  </head>
+
+  <body class="background" onload="LoadPage()">
+    <a href="Fons/About/" id="aboutus" title="About Fo , Fons , .."></a>
+    <div id="LoginForm">
+      <input type="text" id="User" placeholder="Username" />
+      <input type="password" id="Pass" placeholder="Password" />
+      <button type="button" id="submit" onclick="ShowPage()">
+        Login Or Sign Up
+      </button>
+    </div>
+    <div id="newsshow">
+      <img id="imgnews" src="ico/news.png" alt="" onclick="ShowNews()" />
+    </div>
+    <div id="News" onclick="ShowNews()">
+      <pre style="font-size: 20px">
+
+
+
+        Woman Life Freedom  ...
+        </pre
+      >
+    </div>
+    <div id="MessageWindow">
+      <pre id="MessageTitle">
+    Title
+</pre
+      >
+      <pre id="MessageText">
+        Message
+    </pre
+      >
+    </div>
+    <div id="title">Home</div>
+    <div id="imgtitle">
+      <img
+        src="ico/home.png"
+        alt=""
+        style="max-width: 100%; max-height: 100%"
+      />
+    </div>
+    <div id="NewPostPanel">
+      <div
+        contenteditable="true"
+        id="TextPost"
+        title="Your Text POST For Send"
+      ></div>
+      <button onclick="NewPost()" id="NewPostSubmit">Submit</button>
+      <button onclick="PanelNewPost(mode = 'close')" id="ClosePanelPost">
+        X
+      </button>
+    </div>
+    <div id="PanelRight">
+      <a title="Setting Fons" href="Fons/Setting/"
+        ><button id="Setting"></button
+      ></a>
+      <button
+        id="newpost"
+        title="New Post In Fons"
+        onclick="PanelNewPost(mode = 'open')"
+      ></button>
+      <button
+        id="AppGame"
+        title="Apps And Games Fo"
+        onclick="Link(url = 'Fons/AG/')"
+      >
+        AG
+      </button>
+    </div>
+    <div id="PanelLeft">
+      <a href="Fons/account/" title="Account Fons"
+        ><button id="Account"></button
+      ></a>
+      <a href="Fons/Chat/" title="Chat Fons"><button id="Chat"></button></a>
+      <button
+        id="Search"
+        title="Explore And Search Fons"
+        onclick="location.href = 'Fons/Explore/'"
+      ></button>
+    </div>
+    <button id="PanelShow" onclick="PanelShow()"></button>
+  </body>
+  <style>
+    .background {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+  </style>
+  <script>
+    function Link(url) {
+      location.href = url;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const backgrounds = [
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "6.jpg",
+        "7.jpg",
+        "8.jpg",
+        "9.jpg",
+        "10.jpg",
+        "11.jpg",
+        "12.jpg",
+        "13.jpg",
+        "14.jpg",
+        "15.jpg",
+        "16.jpg",
+        "17.jpg",
+        "18.jpg",
+        "19.jpg",
+        "20.jpg",
+        "21.jpg",
+        "22.jpg",
+        "23.jpg",
+        "24.jpg",
+        "25.jpg",
+        "26.jpg",
+        "27.jpg",
+        "28.jpg",
+        "29.jpg",
+        "30.jpg",
+        "31.jpg",
+        "32.jpg",
+        "33.png",
+      ];
+      const backgroundElement = document.querySelector(".background");
+
+      function setRandomBackground() {
+        const randomIndex = Math.floor(Math.random() * backgrounds.length);
+        const randomBackground = "Background/" + backgrounds[randomIndex];
+        const backgroundUrl = `url('${randomBackground}')`;
+        backgroundElement.style.backgroundImage = backgroundUrl;
+      }
+
+      setRandomBackground();
+
+      setInterval(setRandomBackground, 200000);
+    });
+    var PanelShowed = false;
+    var NewsShowed = false;
+    // Start Test Logined
+    document.getElementById("User").value = getCookie("User");
+    document.getElementById("Pass").value = getCookie("Pass");
+    if (document.getElementById("User").value.trim().length >= 3) {
+      ShowPage();
+    }
+    function NewPost() {
+      var xhr = new XMLHttpRequest();
+      console.log("START");
+      // URL صفحه دیگری که می‌خواهید به آن درخواست ارسال کنید
+      var url =
+        "api/NewPost.php?Username=" +
+        document.getElementById("User").value +
+        "&Password=" +
+        document.getElementById("Pass").value +
+        "&Text=" +
+        document.getElementById("TextPost").innerText;
+
+      // تنظیم نوع درخواست (GET در این مثال)
+      xhr.open("GET", url, true);
+
+      // تعریف یک تابع برای پردازش پاسخ درخواست
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText);
+          document.getElementById("MessageTitle").innerHTML = "Posted";
+          document.getElementById("MessageText").innerHTML =
+            "Post : " + document.getElementById("TextPost").innerText;
+        }
+      };
+
+      // ارسال درخواست
+      xhr.send();
+      document.getElementById("MessageWindow").style.animation =
+        "MessageWindow 7.5s infinite";
+      setTimeout(function () {
+        document.getElementById("MessageWindow").style.visibility = "hidden";
+      }, 5500);
+    }
+    function PanelNewPost(mode) {
+      if (mode == "open") {
+        document.getElementById("NewPostPanel").style.visibility = "visible";
+      } else if (mode == "close") {
+        document.getElementById("NewPostPanel").style.visibility = "hidden";
+      }
+    }
+    function getCookie(cookie_name) {
+      var name = cookie_name + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function PanelShow() {
+      if (PanelShowed == false) {
+        document.getElementById("PanelLeft").style.transition = "0.7s";
+        document.getElementById("PanelRight").style.transition = "0.7s";
+        document.getElementById("PanelLeft").style.height = "10%";
+        document.getElementById("PanelLeft").style.height = "20%";
+        document.getElementById("PanelLeft").style.height = "29%";
+        document.getElementById("PanelLeft").style.visibility = "visible";
+        document.getElementById("PanelRight").style.visibility = "visible";
+        document.getElementById("PanelRight").style.width = "10%";
+        document.getElementById("PanelRight").style.width = "20%";
+        document.getElementById("PanelRight").style.width = "30%";
+        PanelShowed = true;
+        document.getElementById("PanelShow").style.rotate = "30deg";
+      } else {
+        document.getElementById("PanelLeft").style.transition = "0.7s";
+        document.getElementById("PanelRight").style.transition = "0.7s";
+        document.getElementById("PanelLeft").style.height = "29%";
+        document.getElementById("PanelLeft").style.height = "20%";
+        document.getElementById("PanelLeft").style.height = "10%";
+        document.getElementById("PanelLeft").style.height = "00%";
+        document.getElementById("PanelLeft").style.visibility = "hidden";
+        document.getElementById("PanelRight").style.visibility = "hidden";
+        document.getElementById("PanelRight").style.width = "30%";
+        document.getElementById("PanelRight").style.width = "20%";
+        document.getElementById("PanelRight").style.width = "10%";
+        document.getElementById("PanelRight").style.width = "00%";
+        PanelShowed = false;
+        document.getElementById("PanelShow").style.rotate = "0deg";
+      }
+    }
+    function LoadPage() {
+      PanelShow(); // Panel Right And Left Show
+      if ("true" == getCookie("NewsShowed")) {
+        // Hide News If News Showed
+        document.getElementById("News").style.display = "none";
+        document.getElementById("newsshow").style.display = "none";
+        console.log("Hided News");
+      }
+    }
+    function ShowPage() {
+      // ارسال پیام به صفحه اصلی
+      document.getElementById("MessageWindow").style.width += "25%";
+      if (document.getElementById("User").value.trim().length > 3) {
+        document.getElementById("LoginForm").style.visibility = "hidden";
+        document.getElementById("LoginForm").style.transition = "1.3s";
+        document.getElementById("LoginForm").style.transform = "scale(0.0)";
+        document.getElementById("MessageWindow").style.visibility = "visible";
+        document.getElementById("MessageWindow").style.transition = "1.3s";
+        document.getElementById("MessageWindow").style.width = "25%";
+        var xhr = new XMLHttpRequest();
+        console.log("START");
+        // URL صفحه دیگری که می‌خواهید به آن درخواست ارسال کنید
+        // URL صفحه دیگری که می​​خواهید به آن درخواست ارسال کنید
+        var url =
+          "api/NewUser.php?Username=" +
+          document.getElementById("User").value +
+          "&Password=" +
+          document.getElementById("Pass").value;
+
+        // تنظیم نوع درخواست (GET در این مثال)
+        xhr.open("GET", url, true);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+            document.getElementById("MessageTitle").innerHTML = " Message  !";
+            document.getElementById("MessageText").innerHTML = xhr.responseText;
+            if (xhr.responseText.trim().search("W") !== -1) {
+              console.log("Pass Wrong Error");
+              document.getElementById("LoginForm").style.visibility = "visible";
+              document.getElementById("LoginForm").style.transform =
+                "scale(1.0)";
+            }
+          }
+        };
+        // ارسال درخواست
+        xhr.send();
+        document.getElementById("MessageWindow").style.animation =
+          "MessageWindow 7.5s infinite";
+        setTimeout(function () {
+          document.getElementById("MessageWindow").style.visibility = "hidden";
+        }, 5500);
+        document.cookie = "User=" + document.getElementById("User").value + ";";
+        document.cookie = "Pass=" + document.getElementById("Pass").value + ";";
+      } else {
+        document.getElementById("MessageWindow").style.visibility = "visible";
+        document.getElementById("MessageWindow").style.transition = "1.3s";
+        document.getElementById("MessageWindow").style.width = "25%";
+        document.getElementById("MessageWindow").style.animation =
+          "MessageWindow 6.5s infinite";
+        setTimeout(function () {
+          document.getElementById("MessageWindow").style.width = "0%";
+          document.getElementById("MessageWindow").style.animation = "none";
+        }, 5500);
+        document.getElementById("MessageTitle").innerHTML = " Error Logined";
+        document.getElementById("MessageText").innerHTML =
+          " Not Logined As " + document.getElementById("User").value;
+      }
+    }
+    function ShowNews() {
+      if (NewsShowed == false) {
+        document.getElementById("News").style.visibility = "visible";
+        document.getElementById("News").style.transition = "0.9s";
+        document.getElementById("News").style.transform = "scale(1)";
+        NewsShowed = true;
+      } else {
+        document.getElementById("News").style.visibility = "hidden";
+        document.getElementById("News").style.transition = "0.9s";
+        document.getElementById("News").style.transform = "scale(0.0)";
+        document.getElementById("newsshow").style.display = "none";
+        document.getElementById("imgnews").style.display = "none";
+        NewsShowed = false;
+        document.cookie = "NewsShowed=true";
+      }
+    }
+  </script>
+</html>

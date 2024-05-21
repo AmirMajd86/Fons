@@ -1,0 +1,9 @@
+
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> New</b>
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> Posts</b>
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> pOSTED</b>
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> pOSTED</b>
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> pOSTED</b>
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> pOSTED</b>
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> pOSTED</b>
+ <button onclick='clickOnUser(user = "User")'>User </button> <b> pOSTED</b>

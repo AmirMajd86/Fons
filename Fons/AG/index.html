@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App And Game FO</title>
+    <link rel="shortcut icon" href="ico.png" type="image/png" />
+  </head>
+  <style>
+    body {
+      overflow: hidden;
+    }
+    #menu {
+      height: 50px;
+      width: 100%;
+      background-color: white;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      z-index: 1;
+    }
+
+    #HomeFo {
+      background-image: url(../../ico/home.png);
+      width: 50px;
+      height: 50px;
+      border: none;
+      background-size: 100% 100%;
+      background-color: rgba(0, 0, 0, 0);
+      position: absolute;
+      right: 0;
+      z-index: 2;
+    }
+    #ShowApps {
+      background-image: url(apps.png);
+      width: 50px;
+      height: 50px;
+      border: none;
+      background-size: 100% 100%;
+      background-color: rgba(0, 0, 0, 0);
+      right: 0;
+      z-index: 2;
+      position: absolute;
+      bottom: 3%;
+      left: 45%;
+    }
+    #ShowMenuStart {
+      position: absolute;
+      background-image: url(ico/apps.png);
+      width: 50px;
+      height: 50px;
+      border: none;
+      bottom: 3%;
+      background-size: 100% 100%;
+      background-color: transparent;
+      right: 48%;
+      z-index: 2;
+    }
+    #ShowMenuStart:focus,
+    #ShowMenuStart:hover,
+    #ShowMenuStart:active {
+      transition: 1.1s;
+      transform: scale(1.5);
+      background-color: rgba(212, 12, 12, 0.2);
+      border-radius: 15px;
+    }
+  </style>
+
+  <body bgcolor="gray">
+    <div id="menu">
+      <button id="HomeFo" onclick="Link(url = '../../')"></button>
+    </div>
+    <button id="ShowMenuStart" onclick="ShowMenuStart()"></button>
+  </body>
+  <script>
+    function Link(url) {
+      location.href = url;
+    }
+  </script>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .start-menu {
+        visibility: hidden;
+        width: 350px;
+        background: #ffffff;
+        border: 1px solid #cfcfcf;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        bottom: 20%;
+        left: 30%;
+        max-height: 80%;
+      }
+      .app-item {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        cursor: pointer;
+      }
+      .app-item:hover {
+        background-color: #eaeaea;
+      }
+      .icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        background-size: cover;
+        border-radius: 4px;
+      }
+      .text {
+        flex-grow: 1;
+      }
+      .app-list {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .search-box {
+        margin-bottom: 10px;
+        display: flex;
+      }
+      .search-box input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      #start-menu {
+        bottom: -700px;
+      }
+      @media screen and (max-width: 768px) {
+        .start-menu {
+          left: 15%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="start-menu" class="start-menu">
+      <div class="search-box">
+        <input type="text" placeholder="Search apps" id="app-search" />
+      </div>
+      <div class="app-list" id="app-list">
+        <!-- App items will be inserted here via JavaScript -->
+      </div>
+    </div>
+
+    <script>
+      function ShowMenuStart() {
+        if (
+          document.getElementById("start-menu").style.visibility == "visible"
+        ) {
+          document.getElementById("start-menu").style.visibility = "hidden";
+          document.getElementById("start-menu").style.bottom = "-700px";
+        } else {
+          document.getElementById("start-menu").style.transition = "1.1s";
+          document.getElementById("start-menu").style.bottom = "20%";
+          document.getElementById("start-menu").style.visibility = "visible";
+        }
+      }
+      function OpenApp(event) {
+        console.log(event);
+      }
+      const apps = [
+        { name: "Chess", img: "ico" },
+        { name: "Calculator", img: "ico/calculator.png" },
+        { name: "FO-BOMB", img: "path/to/photos-icon.png" },
+        { name: "ToWar", img: "path/to/photos-icon.png" },
+        { name: "WNA", img: "path/to/photos-icon.png" },
+        // Add more app details here
+      ];
+
+      const appList = document.getElementById("app-list");
+      const searchBox = document.getElementById("app-search");
+
+      function populateApps(apps) {
+        appList.innerHTML = ""; // Clear the list before populating
+        apps.forEach((app) => {
+          const appItem = document.createElement("div");
+          appItem.className = "app-item";
+
+          const icon = document.createElement("div");
+          icon.className = "icon";
+          icon.style.backgroundImage = `url(${app.img})`;
+          icon.setAttribute("onclick", "OpenApp((event = '" + app.name + "'))");
+
+          const text = document.createElement("span");
+          text.className = "text";
+          text.textContent = app.name;
+          text.setAttribute("onclick", "OpenApp((event = '" + app.name + "'))");
+
+          appItem.appendChild(icon);
+          appItem.appendChild(text);
+
+          appList.appendChild(appItem);
+        });
+      }
+
+      function filterApps(event) {
+        const searchText = event.target.value.toLowerCase();
+        const filteredApps = apps.filter((app) =>
+          app.name.toLowerCase().includes(searchText)
+        );
+        populateApps(filteredApps);
+      }
+
+      searchBox.addEventListener("keyup", filterApps);
+
+      // Initially populate the app list
+      populateApps(apps);
+      var Elements = document.querySelectorAll("app-item");
+
+      for (var i = 0; i < Elements.length; i++) {
+        console.log(i);
+        Elements[i].setAttribute("OpenApp(event = this)", onclick); // به جای "ویژگی" و "مقدار"، عناصر مورد نظر خود را قرار دهید.
+      }
+      console.log(Elements.length);
+    </script>
+  </body>
+</html>
